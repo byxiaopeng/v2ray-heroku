@@ -18,7 +18,7 @@ cat << EOF > /usr/local/etc/v2ray/config.json
                 "clients": [
                     {
                         "id": "$UUID",
-                        "alterId": 64
+                        "alterId": 4
                     }
                 ],
                 "disableInsecureEncryption": true
