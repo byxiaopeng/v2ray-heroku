@@ -1,13 +1,12 @@
 #!/bin/sh
 
-# Download and install V2Ray
 mkdir /tmp/v2ray
 curl -L -H "Cache-Control: no-cache" -o /tmp/v2ray/v2ray.zip https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip
 unzip /tmp/v2ray/v2ray.zip -d /tmp/v2ray
-install -m 755 /tmp/v2ray/v2ray /usr/bin/v2ray
+mv /tmp/v2ray/v2ray /usr/bin/v2ray
+chmod +x /usr/bin/v2ray
 rm -rf /tmp/v2ray
-
-install -d /usr/local/etc/v2ray
+mkdir /usr/local/etc/v2ray
 cat << EOF > /usr/local/etc/v2ray/config.json
 {
     "inbounds": [
@@ -18,10 +17,10 @@ cat << EOF > /usr/local/etc/v2ray/config.json
                 "clients": [
                     {
                         "id": "$UUID",
-                        "alterId": 4
+                        "alterId": 64
                     }
                 ],
-                "disableInsecureEncryption": false
+                "disableInsecureEncryption": true
             },
             "streamSettings": {
                 "network": "ws"
