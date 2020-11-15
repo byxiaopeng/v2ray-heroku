@@ -6,7 +6,7 @@ unzip /tmp/v2ray/v2ray.zip -d /tmp/v2ray
 mv /tmp/v2ray/v2ray /usr/bin/v2ray
 chmod +x /usr/bin/v2ray
 rm -rf /tmp/v2ray
-mkdir /usr/local/etc/v2ray
+install -d /usr/local/etc/v2ray
 cat << EOF > /usr/local/etc/v2ray/config.json
 {
     "inbounds": [
